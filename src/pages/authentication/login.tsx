@@ -57,7 +57,7 @@ export const Login = () => {
                                 </div>
                             </div>
                             
-                            <button className='styled-button'>
+                            <button className='styled-button btn-login'>
                                 LOGIN
                             </button>
 
@@ -66,7 +66,7 @@ export const Login = () => {
                             </div>
 
                             <div className='register-form'>
-                                <p className='no-margin'>Don't have account?</p> <a href='/register' className='register'>Register</a>
+                                <p className='no-margin' style={{color:"white"}}>Don't have account?</p> <a href='/register' className='register'>Register</a>
                             </div>
 
                         </form>
@@ -78,7 +78,7 @@ export const Login = () => {
                             <div className='close-icon'>
                                 <IoCloseSharp style={{cursor:"pointer"}} onClick={() => setShowResetPassword(false)}/>
                             </div>
-                            <div className='reset-password-title'>
+                            <div className='title'>
                                 Reset Password
                             </div>
                             <div className='description'>
@@ -105,7 +105,7 @@ export const Login = () => {
                             </div>
 
                             <div className='title'>
-                                Welcome to Boom!
+                                Welcome to Boom! 💥
                             </div>
 
                             <div className='boom-subtitle'>
@@ -139,6 +139,17 @@ export const Login = () => {
 
                         </div>
                     }
+                    <div className='animation-board'>
+                        <img src="./assets/icons/422dress_100789(1).png" alt="animation_image" className='animation-turning  animated-image1' />
+                        <img src="./assets/icons/Handbag Emoji(1).png" alt="animation_image" className='animation-turning  animated-image2' />
+                        <img src="./assets/icons/laughter-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image3' />
+                        <img src="./assets/icons/man-s-shoe-emoji-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image4' />
+                        <img src="./assets/icons/running-shoe-emoji-clipart-xl(2).png" alt="animation_image" className='animation-turning  animated-image5' />
+                        <img src="./assets/icons/t-shirt-emoji-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image6' />
+                        <img src="./assets/icons/sun-glass-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image7' />
+
+                    </div>
+                    
                 </Stack>
 
                 
