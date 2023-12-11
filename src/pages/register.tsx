@@ -12,11 +12,8 @@ import './login.css';
 
 export const Register = () => {
     const [isShowPassword, setIsShowPassword] = useState(false);
-    const onShowPassword = () => {
+    const [isShowConfirmPass, setIsShowConfirmPass] = useState(false);
 
-        setIsShowPassword(!isShowPassword);
-     
-    }
     return (
         <Container className='container'>
             <Box width={'100%'}>
@@ -48,7 +45,7 @@ export const Register = () => {
                                     <MdLock className='frontIcon-on-input'/>
                                     <input id='password' type={isShowPassword ? "text" : "password"} placeholder='Password' className='input-field' />
                                     {
-                                        isShowPassword ? <FiEyeOff className='endIcon-on-input' onClick={onShowPassword}/> : <FiEye className='endIcon-on-input' onClick={onShowPassword}/> 
+                                        isShowPassword ? <FiEyeOff className='endIcon-on-input' onClick={() => setIsShowPassword(!isShowPassword)}/> : <FiEye className='endIcon-on-input' onClick={() => setIsShowPassword(!isShowPassword)}/> 
                                     }
                                 </div>
 
@@ -58,15 +55,15 @@ export const Register = () => {
 
                                 <div className='input-form'>
                                     <MdLock className='frontIcon-on-input'/>
-                                    <input id='confirm-password' type={isShowPassword ? "text" : "password"} placeholder='Confirm Password' className='input-field' />
+                                    <input id='confirm-password' type={isShowConfirmPass ? "text" : "password"} placeholder='Confirm Password' className='input-field' />
                                     {
-                                        isShowPassword ? <FiEyeOff className='endIcon-on-input' onClick={onShowPassword}/> : <FiEye className='endIcon-on-input' onClick={onShowPassword}/> 
+                                        isShowConfirmPass ? <FiEyeOff className='endIcon-on-input' onClick={()=>setIsShowConfirmPass(!isShowConfirmPass)}/> : <FiEye className='endIcon-on-input' onClick={() => setIsShowConfirmPass(!isShowConfirmPass)}/> 
                                     }
                                 </div>
                             </div>
                             
-                            <button className='login-button'>
-                                LOGIN
+                            <button className='styled-button'>
+                                CREATE ACCOUNT
                             </button>
 
                             <div className='register-form'>

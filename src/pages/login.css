@@ -6,6 +6,11 @@
     padding: 30px;
 }
 
+.close-icon {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
 .endIcon-on-input {
     position: absolute;
     top: 13px;
@@ -21,6 +26,10 @@
 
 .forgot-password {
     cursor: pointer;
+
+    &:hover {
+        color: #22a2e8;
+    }
 }
 
 .input-form {
@@ -30,6 +39,7 @@
 }
 
 .input-fields {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -64,8 +74,8 @@
     padding: 20px;
 }
 
-.login-button {
-    width: 40%;
+.styled-button {
+    width: auto;
     margin-top: 20px;
     margin-bottom: 10px;
     background-color: #22a2e8;
@@ -106,22 +116,35 @@
     color: #96766d;
     cursor: pointer;
     margin: 0px;
+
+    &:hover {
+        color: #22a2e8;
+    }
 }
 
 .reset-password-dialog {
+    width: 50%;
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    left: 25%;
     padding: 20px;
+    position: absolute;
+    top: 350px;
 
 }
 
 .reset-password-title {
     color: black;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
+    margin-bottom: 30px;
 }
 
 .reset-password-description {
-    font-weight: 400;
-    font-size: 15px;
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 .sign-in-title {
@@ -153,6 +176,17 @@
 
     .logo-img {
         width: 50%;
+    }
+
+    .reset-password-dialog {
+        width: 100%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        bottom: 0px;
+        left: 0px;
+        top: auto;
+        padding: 30px;
+        position: absolute;
     }
 }
 
