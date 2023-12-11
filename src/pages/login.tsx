@@ -23,7 +23,7 @@ export const Login = () => {
             <Box width={'100%'}>
                 <Stack spacing={5}>
                     <div className='launcher'>
-                        <img width={'20%'} src='./assets/icons/launcher_icon.png' alt='launcher icon'/>
+                        <img className='logo-img' src='./assets/icons/launcher_icon.png' alt='launcher icon'/>
                     </div>
 
                     <div className='login-container'>
@@ -52,11 +52,26 @@ export const Login = () => {
                                 LOGIN
                             </button>
 
+                            <div className='reset-password-form'>
+                                <p className='forgot-password no-margin'>Forgot Password</p>
+                            </div>
+
+                            <div className='register-form'>
+                                <p className='no-margin'>Don't have account?</p> <a href='/register' className='register'>Register</a>
+                            </div>
 
                         </form>
                     </div>                    
                 </Stack>
 
+                {/* <div className='reset-password-dialog'>
+                    <div className='reset-password-title'>
+                        Reset Password
+                    </div>
+                    <div className='reset-password-title'>
+                        Enter your email addresss and click Proceed to reset your password
+                    </div>
+                </div> */}
             </Box>        
         </Container>
     )

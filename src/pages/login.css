@@ -19,6 +19,10 @@
     left: 17px;
 }
 
+.forgot-password {
+    cursor: pointer;
+}
+
 .input-form {
     width: 100%;
     display: flex;
@@ -41,6 +45,7 @@
 
 .launcher {
     justify-content: center;
+    padding: 90px;
 }
 
 .login-container {
@@ -48,17 +53,21 @@
     justify-content: center;
 }
 
+.logo-img {
+    width: 30%;
+}
+
 .login-form {
     width: 50%;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.1); /* Adjust the alpha value (0 to 1) for the desired opacity */
     padding: 20px;
-
 }
 
 .login-button {
     width: 40%;
     margin-top: 20px;
+    margin-bottom: 10px;
     background-color: #22a2e8;
     border-radius: 5px;
     border: 1px solid #22a2e8;
@@ -67,6 +76,52 @@
     font-size: 20px;
     padding: 10px 20px;
 
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.password-rule {
+    text-align: start;
+}
+
+.reset-password-form {
+    display: flex;
+    justify-content: end;
+}
+
+.register-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.register {
+    color: #96766d;
+    cursor: pointer;
+    margin: 0px;
+}
+
+.reset-password-dialog {
+    padding: 20px;
+
+}
+
+.reset-password-title {
+    color: black;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.reset-password-description {
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .sign-in-title {
@@ -78,9 +133,26 @@
 }
 
 .user-icon {
-    width: 100px;
-    height: 100px;
+    width: 85px;
+    height: 85px;
 }
 
+@media (max-width: 600px) {
+    .login-form {
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1); /* Adjust the alpha value (0 to 1) for the desired opacity */
+        padding: 20px;
+    }
 
+    .launcher {
+        justify-content: center;
+        padding: 30px 10px;
+        
+    }
+
+    .logo-img {
+        width: 50%;
+    }
+}
 
