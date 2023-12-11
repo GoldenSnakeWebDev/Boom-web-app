@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -9,12 +9,13 @@ import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import './login.css';
 
 export const Login = () => {
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [showResetPassword, setShowResetPassword] = useState(false);
-
+    const [showWelcomeDialog, setShowWelcomeDialog] = useState(true);
     const onForgotPassword = () => {
         setShowResetPassword(true);
     }
@@ -23,9 +24,9 @@ export const Login = () => {
         setShowResetPassword(false);
     }
 
-    const onCloseResetDialog = () => {
-        setShowResetPassword(false);
-    }
+    useEffect(() => {
+        setShowWelcomeDialog(true);
+    }, [])
     return (
         <Container className='container'>
             <Box width={'100%'}>
@@ -73,14 +74,14 @@ export const Login = () => {
 
                     {
                         showResetPassword && 
-                        <div className='reset-password-dialog'>
+                        <div className='dialog'>
                             <div className='close-icon'>
-                                <IoCloseSharp style={{cursor:"pointer"}} onClick={onCloseResetDialog}/>
+                                <IoCloseSharp style={{cursor:"pointer"}} onClick={() => setShowResetPassword(false)}/>
                             </div>
                             <div className='reset-password-title'>
                                 Reset Password
                             </div>
-                            <div className='reset-password-description'>
+                            <div className='description'>
                                 Enter your email addresss and click Proceed to reset your password
                             </div>
 
@@ -92,6 +93,50 @@ export const Login = () => {
                             <button className='styled-button' onClick={onProceedResetPassword}>
                                 Proceed
                             </button>
+                        </div>
+                    }
+
+                    {
+                        showWelcomeDialog &&
+
+                        <div className='dialog'>
+                            <div className='close-icon' style={{color:"red"}}>
+                                <IoIosCloseCircleOutline style={{cursor:"pointer"}} onClick={() => setShowWelcomeDialog(false)}/>
+                            </div>
+
+                            <div className='title'>
+                                Welcome to Boom!
+                            </div>
+
+                            <div className='boom-subtitle'>
+                                Boom is where merchants & Social users win together!
+                            </div>
+
+                            <button className='styled-button btn-welcome-important' onClick={onProceedResetPassword}>
+                                Important, please read:
+                            </button>
+
+                            <div className='boom-description'>
+                                <ul>
+                                    <li>
+                                        This version is a "simulation"(demo) of what's to come!
+                                    </li>
+                                    <li>
+                                        With this simulation, users can own social content
+                                    </li>
+                                    <li>
+                                        Users have the bonus of trading content using simulated (pseudo) coins across Tezos, Polygon & BNB
+                                    </li>
+                                    <li>
+                                        This simulation gives usrs a fun way to experience the application completely free and shows a preview....
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button className='styled-button btn-welcome-gotit' onClick={() => setShowWelcomeDialog(false)}>
+                                GOT IT
+                            </button>
+
                         </div>
                     }
                 </Stack>
