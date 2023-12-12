@@ -9,7 +9,7 @@ import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { Welcome } from '../../components/modal/welcome';
 import './login.css';
 
 export const Login = () => {
@@ -97,47 +97,7 @@ export const Login = () => {
                     }
 
                     {
-                        showWelcomeDialog &&
-
-                        <div className='dialog'>
-                            <div className='close-icon' style={{color:"red"}}>
-                                <IoIosCloseCircleOutline style={{cursor:"pointer"}} onClick={() => setShowWelcomeDialog(false)}/>
-                            </div>
-
-                            <div className='title'>
-                                Welcome to Boom! 💥
-                            </div>
-
-                            <div className='boom-subtitle'>
-                                Boom is where merchants & Social users win together!
-                            </div>
-
-                            <button className='styled-button btn-welcome-important' onClick={onProceedResetPassword}>
-                                Important, please read:
-                            </button>
-
-                            <div className='boom-description'>
-                                <ul>
-                                    <li>
-                                        This version is a "simulation"(demo) of what's to come!
-                                    </li>
-                                    <li>
-                                        With this simulation, users can own social content
-                                    </li>
-                                    <li>
-                                        Users have the bonus of trading content using simulated (pseudo) coins across Tezos, Polygon & BNB
-                                    </li>
-                                    <li>
-                                        This simulation gives usrs a fun way to experience the application completely free and shows a preview....
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <button className='styled-button btn-welcome-gotit' onClick={() => setShowWelcomeDialog(false)}>
-                                GOT IT
-                            </button>
-
-                        </div>
+                        showWelcomeDialog && <Welcome setShowWelcomeDialog={setShowWelcomeDialog}/>
                     }
                     <div className='animation-board'>
                         <img src="./assets/icons/422dress_100789(1).png" alt="animation_image" className='animation-turning  animated-image1' />
