@@ -7,8 +7,7 @@ import { FaUserLarge } from "react-icons/fa6";
 import { MdLock } from "react-icons/md";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
-import { MdEmail } from "react-icons/md";
-import { IoCloseSharp } from "react-icons/io5";
+import { ResetPassword } from '../../components/modal/resetPass';
 import { Welcome } from '../../components/modal/welcome';
 import './login.css';
 
@@ -20,9 +19,7 @@ export const Login = () => {
         setShowResetPassword(true);
     }
 
-    const onProceedResetPassword = () => {
-        setShowResetPassword(false);
-    }
+
 
     useEffect(() => {
         setShowWelcomeDialog(true);
@@ -73,32 +70,13 @@ export const Login = () => {
                     </div>   
 
                     {
-                        showResetPassword && 
-                        <div className='dialog'>
-                            <div className='close-icon'>
-                                <IoCloseSharp style={{cursor:"pointer"}} onClick={() => setShowResetPassword(false)}/>
-                            </div>
-                            <div className='title'>
-                                Reset Password
-                            </div>
-                            <div className='description'>
-                                Enter your email addresss and click Proceed to reset your password
-                            </div>
-
-                            <div className='input-form'>
-                                <MdEmail className='frontIcon-on-input'/>
-                                <input type="text" placeholder='Email' className='input-field' />
-                            </div>
-
-                            <button className='styled-button' onClick={onProceedResetPassword}>
-                                Proceed
-                            </button>
-                        </div>
+                        showResetPassword && <ResetPassword setShowResetPassword={setShowResetPassword}/>
                     }
 
                     {
                         showWelcomeDialog && <Welcome setShowWelcomeDialog={setShowWelcomeDialog}/>
                     }
+                    
                     <div className='animation-board'>
                         <img src="./assets/icons/422dress_100789(1).png" alt="animation_image" className='animation-turning  animated-image1' />
                         <img src="./assets/icons/Handbag Emoji(1).png" alt="animation_image" className='animation-turning  animated-image2' />
@@ -107,11 +85,9 @@ export const Login = () => {
                         <img src="./assets/icons/running-shoe-emoji-clipart-xl(2).png" alt="animation_image" className='animation-turning  animated-image5' />
                         <img src="./assets/icons/t-shirt-emoji-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image6' />
                         <img src="./assets/icons/sun-glass-clipart-xl(1).png" alt="animation_image" className='animation-turning  animated-image7' />
-
                     </div>
                     
                 </Stack>
-
                 
             </Box>        
         </Container>

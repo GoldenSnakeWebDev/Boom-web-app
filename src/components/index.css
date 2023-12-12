@@ -1,0 +1,17 @@
+.headerbar-container {
+    background: linear-gradient(to right, #e2fe2e, #26ebfd, #e2fe2e);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.header-iconbar {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    cursor: pointer;
+}
