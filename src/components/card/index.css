@@ -1,0 +1,107 @@
+.icon-and-message-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.boom-username {
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
+.boom-location {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.boom-gradiant-background {
+    background: linear-gradient(to right, #26ebfd,#e2fe2e, #26ebfd, #e2fe2e);
+}
+
+.boom-border-radius {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.card-container {
+    width: 25%;
+    min-width: max-content;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.nft-name {
+    display: flex;
+    justify-content: start;
+    font-size: 30px;
+    
+}
+
+.nft-title {
+    display: flex;
+    justify-content: start;
+    font-size: 30px;
+}
+
+.nft-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+}
+
+.notification-content {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification-icon {
+    color: #26ebfd;
+}
+
+.notification-timestamp {
+    display: flex;
+    align-items: center;
+}
+
+.view-more {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: end;
+    font-weight: 500;
+    color: rgba(68, 138, 255, 255);
+}
+
+.user-location {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width:600px) {
+    .card-container {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

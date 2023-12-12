@@ -4,7 +4,7 @@ import { MdOutlineNotifications } from "react-icons/md";
 import { FaUser } from "react-icons/fa6";
 import { useState } from "react";
 
-export const Footer = () => {
+export const Footer = (props:any) => {
 
     const [isHome, setIsHome] = useState(true);
     const [isSearch, setIsSearch] = useState(false);
@@ -16,9 +16,19 @@ export const Footer = () => {
         setIsHome(false);
         setIsSearch(false);
         setIsUser(false);
+
+        props.setIsNotification(true);
+        props.setIsHome(false);
+        props.setIsSearch(false);
+        props.setIsUser(false);
     }
 
     const onHome = () => {
+        props.setIsNotification(false);
+        props.setIsHome(true);
+        props.setIsSearch(false);
+        props.setIsUser(false);
+
         setIsNotification(false);
         setIsHome(true);
         setIsSearch(false);
@@ -30,6 +40,11 @@ export const Footer = () => {
         setIsHome(false);
         setIsSearch(true);
         setIsUser(false);
+
+        props.setIsNotification(false);
+        props.setIsHome(false);
+        props.setIsSearch(true);
+        props.setIsUser(false);
     }
 
     const onUser = () => {
@@ -37,6 +52,11 @@ export const Footer = () => {
         setIsHome(false);
         setIsSearch(false);
         setIsUser(true);
+
+        props.setIsNotification(false);
+        props.setIsHome(false);
+        props.setIsSearch(false);
+        props.setIsUser(true);
     }
     
     return (

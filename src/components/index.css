@@ -1,3 +1,33 @@
+.booms-container {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.notification-container {
+    width: 100%;
+}
+
+.notification-title-area {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 20px 30px;
+    justify-content: center;
+}
+
+.notification-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: calc(100vh - 197px);
+}
+
 .footer-container {
     width: 100%;
     
@@ -15,6 +45,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+}
+
+.frontIcon-on-input {
+    color: grey;
+    position: absolute;
+    top: 13px;
+    left: 17px;
 
 }
 
@@ -38,4 +76,19 @@
 
 .selected-icon {
     color: #26ebfd;
+}
+
+.search-bar {
+    width: 100%;
+    position: relative;
+}
+
+.search-field {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 0;
+    font-size: 20px;
+    padding: 10px 10px 10px 50px;
 }
