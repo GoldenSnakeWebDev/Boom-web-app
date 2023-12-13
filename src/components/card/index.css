@@ -1,6 +1,8 @@
 .icon-and-message-bar {
     display: flex;
     align-items: center;
+    font-size: 13px;
+    font-weight: 800;
     gap: 10px;
     justify-content: space-between;
 }
@@ -77,6 +79,8 @@
 .notification-timestamp {
     display: flex;
     align-items: center;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .view-more {
