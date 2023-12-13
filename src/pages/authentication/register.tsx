@@ -93,7 +93,7 @@ export const Register = () => {
         <Container className='container'>
             <Box width={'100%'}>
                 <Stack spacing={5}>
-                    <div className='launcher'>
+                    <div className='register-launcher'>
                         <img className='logo-img' src='./assets/icons/launcher_icon.png' alt='launcher icon'/>
                     </div>
 

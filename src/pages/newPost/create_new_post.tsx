@@ -8,6 +8,7 @@ import Popover from '@mui/material/Popover';
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
 import { getNetworks } from "../../service/network.service";
+import { ImportNFT } from "../../components/modal/importNFT";
 import "./index.css";
 
 export const CreateNewPost = () => {
@@ -20,6 +21,8 @@ export const CreateNewPost = () => {
         name: "",
         symbol: ""
     }]);
+
+    const [isImportNFT, setIsImportNFT] = useState(false);
 
     const onBack = () => {
         navigate(-1);
@@ -44,7 +47,7 @@ export const CreateNewPost = () => {
             navigate('/');
         }
 
-    }, []);
+    }, [navigate]);
 
     return (
         <div className="new-post-container">
@@ -54,7 +57,7 @@ export const CreateNewPost = () => {
                 </div>
                 New Post
                 <div style={{width:"30%", display:"flex", justifyContent:"end"}}>
-                    <button className="import-nft-button">import NFT</button>
+                    <button className="import-nft-button" onClick={() => setIsImportNFT(true)}>import NFT</button>
                 </div>
             </div>
 
@@ -155,6 +158,10 @@ export const CreateNewPost = () => {
                     </div>
                 </div>
             </div>
+
+            {
+                isImportNFT && <ImportNFT setIsImportNFT={setIsImportNFT}/>
+            }
 
         </div>
     )

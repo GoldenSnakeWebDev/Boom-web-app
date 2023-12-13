@@ -15,10 +15,6 @@
     }
 }
 
-.caption-area {
-
-}
-
 .deatil-info {
     display: flex;
     flex-direction: column;
@@ -51,6 +47,7 @@
 }
 
 .newpost-header-bar {
+    width: 100%;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.1); 
     display: flex;
@@ -58,6 +55,8 @@
     font-weight: 700;
     justify-content: space-between;
     padding: 15px;
+    position: fixed;
+    top: 0px;
 }
 
 .new-post {
