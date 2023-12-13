@@ -81,7 +81,7 @@ export const CreateNewPost = () => {
                 <div className="price-bar">
                     Price
                     <div className="price-pick-bar">
-                        <input style={{width:"50%"}} type="number" placeholder="Price(min listing price is $5)"/>
+                        <input style={{width:"50%"}} className="version-field" type="number" placeholder="Price(min listing price is $5)"/>
                         <div className="token-price">
                             <input style={{width:"50%"}} type="text" disabled />
                             <PopupState variant="popover" popupId="post-menu">
@@ -127,25 +127,25 @@ export const CreateNewPost = () => {
                 <div className="nft-detail">
                     NFT Details
                     <div className="deatil-info">
-                        <p className="no-margin">complete the following deatils before your post is listed on the marketplace</p>
+                        <p style={{color:"grey"}} className="no-margin">complete the following deatils before your post is listed on the marketplace</p>
                         <p className="no-margin">Apply Title, category, description, hashtags to all post</p>
                     </div>
                     <div className="title-area">
                         Title
-                        <input type="text" placeholder="Enter title about your art" />
+                        <input className="version-field" type="text" placeholder="Enter title about your art" />
                     </div>
 
-                    <div className="caption-are">
+                    <div className="text-nft">
                         Caption (Optional)
-                        <textarea name="caption" id="caption" cols={30} rows={10} placeholder="Enter some description about your post"/>
+                        <textarea className="nft-textarea" name="caption" id="caption" cols={30} rows={6} placeholder="Enter some description about your post"/>
                     </div>
-                    <div className="location-area">
+                    <div className="title-area">
                         Location
-                        <input type="text" />
+                        <input className="version-field" type="text" />
                     </div>
-                    <div className="tags-area">
+                    <div className="title-area">
                         Add At-Tags
-                        <input type="text" />
+                        <input type="text" className="version-field"/>
                     </div>
                 </div>
                 <div className="newpost">
