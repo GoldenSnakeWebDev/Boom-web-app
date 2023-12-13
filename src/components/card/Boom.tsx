@@ -4,7 +4,6 @@ import "./index.css";
 import "../../pages/authentication/login.css";
 
 export const BoomCard = (boom:any) => {
-    console.log("boom>>>>", boom);
 
     const handleComment = () => {
         console.log("current commet>>", boom.boom.comments.length);

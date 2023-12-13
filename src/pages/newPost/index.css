@@ -39,6 +39,7 @@
     border: 0;
     background-color: unset; 
     color:rgba(107, 83, 172, 255);
+    cursor: pointer;
     font-size: 15px;
     font-weight: 500;
 }
@@ -141,7 +142,7 @@
 
 .token-price {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .version-num {

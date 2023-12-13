@@ -101,7 +101,7 @@
 .close-icon {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .endIcon-on-input {
     position: absolute;
@@ -194,7 +194,7 @@
 
 .reset-password-form {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .register-form {

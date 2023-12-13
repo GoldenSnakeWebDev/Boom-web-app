@@ -62,13 +62,13 @@ export const Footer = (props:any) => {
     return (
         <div className="footer-container">
             <div className="footer-iconpart">
-                <IoMdHome style={{width:"25px", height:"25px"}} className={`icon ${isHome && "selected-icon"}`} onClick={onHome}/>
-                <FaSearch style={{width:"25px", height:"25px"}} className={`icon ${isSearch && "selected-icon"}`} onClick={onSearch}/>
+                <IoMdHome style={{width:"27px", height:"27px"}} className={`icon ${isHome && "selected-icon"}`} onClick={onHome}/>
+                <FaSearch style={{width:"23px", height:"23px"}} className={`icon ${isSearch && "selected-icon"}`} onClick={onSearch}/>
             </div>
 
             <div className="footer-iconpart">
                 <MdOutlineNotifications style={{width:"30px", height:"30px"}} className={`icon ${isNotification && "selected-icon"}`} onClick={onNotification}/>
-                <FaUser style={{width:"25px", height:"25px"}} className={`icon ${isUser && "selected-icon"}`} onClick={onUser}/>
+                <FaUser style={{width:"20px", height:"20px"}} className={`icon ${isUser && "selected-icon"}`} onClick={onUser}/>
             </div>
         </div>
     )

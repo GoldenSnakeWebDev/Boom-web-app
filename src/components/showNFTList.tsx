@@ -60,7 +60,6 @@ export const ShowNftList = (props:any) => {
             {
                 booms.length > 0 ?
                 booms.map((boom, key) => {
-                    console.log("boomms>>>>>>>>", boom);
                     return (
                         <BoomCard key={key} boom={boom}/>
                     )

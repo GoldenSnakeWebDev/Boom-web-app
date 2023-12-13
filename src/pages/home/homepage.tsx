@@ -32,7 +32,7 @@ export const HomePage = () => {
             navigate('/');
         }
 
-    }, []);
+    });
 
     return (
         <div className="home-container">
@@ -62,7 +62,6 @@ export const HomePage = () => {
                             vertical: 'bottom',
                             horizontal: 'center',
                             }}
-
                         >
                             <div className="pop-menu-bar" >
                                 <div className="menu-item" onClick={()=> onNewPost(popupState)}>

@@ -49,11 +49,15 @@ export const Notification = () => {
 
             <div className="notification-area">
                 {
+                    notifications.length > 0 ?
                     notifications.map(notification => {
                         return (
                             <NotificationCard notification={notification}/>
                         )
-                    })
+                    }) :
+                    <div>
+                        No notifications at the moment
+                    </div>
                 }
             </div>
         </div>
