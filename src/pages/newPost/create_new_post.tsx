@@ -1,3 +1,4 @@
+import { CiLocationArrow1 } from "react-icons/ci";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { LuPlus } from "react-icons/lu";
 import { useEffect, useState } from "react";
@@ -148,8 +149,10 @@ export const CreateNewPost = () => {
                         <input type="text" className="version-field"/>
                     </div>
                 </div>
-                <div className="newpost">
-                    <button>POST</button>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                    <div className="new-post">
+                        <CiLocationArrow1 style={{width:"50px", height:"50px"}}/>
+                    </div>
                 </div>
             </div>
 
