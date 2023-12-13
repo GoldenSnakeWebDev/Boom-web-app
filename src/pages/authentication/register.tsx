@@ -20,7 +20,7 @@ export const Register = () => {
     const [confirmPass, setConfirmPass] = useState('');
     const navigate = useNavigate();
 
-    const regex = RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$');
+    const regex = RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{6,}$');
     const handleRegister = async (e:any) => {
 
         const emailRegexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -84,11 +84,9 @@ export const Register = () => {
           ) {
             // Password and confirm password are valid.
             return true;
-            console.log('Password is valid');
           } else {
             // Password and confirm password do not meet the required conditions.
             return false
-            console.log('Password is not valid');
           }
     }
     return (
