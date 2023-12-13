@@ -86,6 +86,11 @@
     text-align: start;
 }
 
+.price-pick-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
 .text-nft {
     display: flex;
     flex-direction: column;
@@ -93,6 +98,11 @@
     font-weight: 700;
     gap: 10px;
     text-align: start;
+}
+
+.token-price {
+    display: flex;
+    justify-content: end;
 }
 
 .version-num {

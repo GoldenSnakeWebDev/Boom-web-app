@@ -80,10 +80,10 @@ export const CreateNewPost = () => {
                 </div>
                 <div className="price-bar">
                     Price
-                    <div className="price-click-bar">
-                        <input type="number" placeholder="Price(min listing price is $5)"/>
+                    <div className="price-pick-bar">
+                        <input style={{width:"50%"}} type="number" placeholder="Price(min listing price is $5)"/>
                         <div className="token-price">
-                            <input type="text" disabled />
+                            <input style={{width:"50%"}} type="text" disabled />
                             <PopupState variant="popover" popupId="post-menu">
                                 {(popupState:any) => (
                                     <div>
@@ -122,7 +122,7 @@ export const CreateNewPost = () => {
                             </PopupState>
                         </div>
                     </div>
-                    <p>Service fee 4%</p>
+                    <p style={{color:"grey"}}>Service fee <span style={{color:"black"}}>4%</span></p>
                 </div>
                 <div className="nft-detail">
                     NFT Details
