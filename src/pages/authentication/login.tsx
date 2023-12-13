@@ -73,7 +73,7 @@ export const Login = () => {
                 localStorage.setItem('userID', userId);
                 console.log('user id>>>>', userId);
 
-                navigate('/homepage');
+                navigate('/home');
 
             } else {
                 console.error('Response body is null.');

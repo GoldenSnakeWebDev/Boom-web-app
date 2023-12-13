@@ -11,7 +11,7 @@ import { fansIconUrl } from "../../utils/constant";
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Popover from '@mui/material/Popover';
 import "./index.css";
-
+import { getNetworks } from "../../service/network.service";
 export const HomePage = () => {
     const navigate = useNavigate();
     const [isHome, setIsHome] = useState(true);
@@ -20,9 +20,12 @@ export const HomePage = () => {
     const [isUser, setIsUser] = useState(false);
     const onNewPost = (popupState:any) => {
         popupState.close();
+        navigate('/newpost')
     }
 
     useEffect(() => {
+
+        getNetworks();
         const token = localStorage.getItem('token');
         
         if (token === null) {
@@ -52,11 +55,11 @@ export const HomePage = () => {
                         <Popover
                             {...bindPopover(popupState)}
                             anchorOrigin={{
-                            vertical: 'top',
+                            vertical: 'bottom',
                             horizontal: 'center',
                             }}
                             transformOrigin={{
-                            vertical: 'top',
+                            vertical: 'bottom',
                             horizontal: 'center',
                             }}
 
