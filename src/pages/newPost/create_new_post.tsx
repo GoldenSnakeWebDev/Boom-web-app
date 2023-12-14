@@ -9,31 +9,143 @@ import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
 import { getNetworks } from "../../service/network.service";
 import { ImportNFT } from "../../components/modal/importNFT";
+import { MintingVia } from "../../components/modal/mintingVia";
+import { chainID } from "../../utils/constant";
+import { bnbMarketAddress, bnbTokenAddress, maticMarketAddress, maticTokenAddress } from "../../utils/constant";
 import "./index.css";
+import { symbolName } from "typescript";
 
+interface NetworkModel {
+    id: "";
+    image_url: "";
+    is_active: true;
+    name: "";
+    symbol: "";
+}
 export const CreateNewPost = () => {
     const navigate = useNavigate();
     const [NFTtext, setNFTtext] = useState('');
-    const [networkModels, setNetworkModels] = useState([{
-        id: "",
-        image_url: "",
-        is_active: true,
-        name: "",
-        symbol: ""
-    }]);
+    const [networkModels, setNetworkModels] = useState<NetworkModel[]>([]);
 
+    const [selectedNetworModel, setSelectedNetworkModel] = useState({
+        id: "655b5dc06b1fba5fc3f64e03",
+        image_url: "https://bin.bnbstatic.com/static/images/common/favicon.ico",
+        is_active: true,
+        name: "Binance Smart Chain",
+        symbol: "BNB"
+    });
+    const [selectedChainID, setSelectedChainID] = useState("");
+    const [smartContractAddress, setSmartContractAddress] = useState("");
+    const [marketPlaceAddress, setMarketPlaceAddress] = useState("");
+    const [cryptoAmount, setCryptoAmount] = useState("");
+    // let currentUSDPrice = "";
+    const [isPost, setIsPost] = useState(false);
+    // const [nftPrice, setNFTPrice] = useState('');
+    // let nftPrice = "";
+    const [selectedSymbol, setSelectedSymbol] = useState('BNB');
     const [isImportNFT, setIsImportNFT] = useState(false);
+
+    const getCryptoPrice = async (symbol:String) => {
+        const res:Response = await fetch(`${process.env.REACT_APP_BASIC_URL}networks-pricing?symbol=${symbol}&amount=1`, {
+            method:"get"
+        }) 
+
+        if (res.status === 200) {
+            if (res.body) {
+                const reader = res.body.getReader();
+                let result = '';
+    
+                // Assuming the response is text, adjust as needed for other types
+                while (true) {
+                const { done, value } = await reader.read();
+    
+                if (done) {
+                    break;
+                }
+    
+                result += new TextDecoder().decode(value);
+                }
+    
+                // Now, parse the string using JSON.parse
+                
+                // setCurrentUSDPrice(JSON.parse(result).currentUSDPrice);
+                const currentUSDPrice = JSON.parse(result).currentUSDPrice;
+                localStorage.setItem("USDPrice", currentUSDPrice);
+                console.log("all notifications >>>>", currentUSDPrice);
+                
+            } else {
+                console.error('Response body is null.');
+            }
+        }
+    }
+
+    const getCryptoAmount = () => {
+        const nftPrice = localStorage.getItem("nftPrice");
+        const currentUSDPrice = localStorage.getItem("USDPrice");
+
+        const amount  = Number(nftPrice)/Number(currentUSDPrice);
+
+        setCryptoAmount(amount.toLocaleString(undefined, {minimumFractionDigits:2}) + " " + localStorage.getItem("symbol"));
+
+        console.log("nft price>>>>", nftPrice);
+        console.log("USD price>>>>", currentUSDPrice);
+        console.log("amount>>>", amount);
+    }
+
+    const onChangePrice = (e:any) => {
+        // setNFTPrice(e.target.value);
+        const nftPrice:Number = e.target.value;
+        localStorage.setItem("nftPrice", nftPrice.toString());
+        getCryptoAmount();
+    }
 
     const onBack = () => {
         navigate(-1);
     }
 
-    const onChangeChain = (popupState:any) => {
+    const onChangeChain = async (popupState:any, model:NetworkModel) => {
         popupState.close();
+        setSelectedNetworkModel(model);
+        if (model.symbol !== "") {
+
+            switch (model.symbol) {
+                case "TZ":
+                    setSelectedChainID(chainID.TZ);
+                    setSelectedSymbol("TZ");
+                    localStorage.setItem('symbol', "TZ");
+                    // setSmartContractAddress()
+                    break;
+                case "MATIC":
+                    setSelectedChainID(chainID.MATIC);
+                    setSmartContractAddress(maticTokenAddress);
+                    setMarketPlaceAddress(maticMarketAddress);
+                    setSelectedSymbol("MATIC");
+                    localStorage.setItem('symbol', "MATIC");
+                    break;
+                case "BNB":
+                    setSelectedChainID(chainID.BNB);
+                    setSmartContractAddress(bnbTokenAddress);
+                    setMarketPlaceAddress(bnbMarketAddress);
+                    setSelectedSymbol("BNB");
+                    localStorage.setItem('symbol', "BNB");
+                    break;
+
+                default:
+                    setSelectedChainID(chainID.MATIC);
+    
+            }
+        }
+
+        await getCryptoPrice(model.symbol);
+        getCryptoAmount();
     }
 
     useEffect(() => {
 
+        localStorage.removeItem("nftPrice");
+        localStorage.removeItem("USDPrice");
+        localStorage.removeItem("symbol");
+        localStorage.setItem("symbol", "BNB");
         const localstoageItem = localStorage.getItem('networkModel');
         console.log("networkmodels>>>>", localstoageItem);
         if (localstoageItem !== null) {
@@ -46,6 +158,9 @@ export const CreateNewPost = () => {
         if (token === null) {
             navigate('/');
         }
+
+        getCryptoPrice("BNB");
+        setCryptoAmount("0.00 BNB");
 
     }, [navigate]);
 
@@ -85,9 +200,12 @@ export const CreateNewPost = () => {
                 <div className="price-bar">
                     Price
                     <div className="price-pick-bar">
-                        <input style={{width:"50%"}} className="version-field" type="number" placeholder="Price(min listing price is $5)"/>
+                        <input style={{width:"50%"}} className="version-field" type="number" placeholder="Price(min listing price is $5)" onChange={onChangePrice}/>
                         <div className="token-price">
-                            <input style={{width:"50%"}} type="text" disabled />
+                            <div className="crypto-amount-bar">
+                                <img src={selectedNetworModel.image_url} alt="crypto img" className="crypto-icon"/>
+                                <input style={{width:"50%"}} value={cryptoAmount} type="text" disabled className="crypto-amount-field version-field"/>
+                            </div>
                             <PopupState variant="popover" popupId="post-menu">
                                 {(popupState:any) => (
                                     <div>
@@ -109,7 +227,7 @@ export const CreateNewPost = () => {
                                                 {
                                                     networkModels.map((model, key) => {
                                                         return(
-                                                            <div key={key} className="menu-item" onClick={()=> onChangeChain(popupState)}>
+                                                            <div key={key} className="menu-item" onClick={()=> onChangeChain(popupState, model)}>
                                                                 <img style={{width:"30px", height:"30px"}} src={model.image_url} alt="post icon"/>
                                                                 {model.symbol}
                                                             </div>
@@ -154,13 +272,17 @@ export const CreateNewPost = () => {
                 </div>
                 <div style={{display:"flex", justifyContent:"center"}}>
                     <div className="new-post">
-                        <CiLocationArrow1 style={{width:"50px", height:"50px"}}/>
+                        <CiLocationArrow1 style={{width:"50px", height:"50px"}} onClick={() => setIsPost(true)}/>
                     </div>
                 </div>
             </div>
 
             {
                 isImportNFT && <ImportNFT setIsImportNFT={setIsImportNFT}/>
+            }
+
+            {
+                isPost && <MintingVia setIsPost={setIsPost}/>
             }
 
         </div>

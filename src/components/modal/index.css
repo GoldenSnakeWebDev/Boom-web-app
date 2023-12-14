@@ -1,3 +1,26 @@
 .import-nft-title {
+    font-size: 15px;
+    font-weight: 800;
     text-align: center;
+
+}
+
+.import-nft-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.minting-button {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Adjust the alpha value (0 to 1) for the desired opacity */
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.minting-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

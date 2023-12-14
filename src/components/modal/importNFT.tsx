@@ -5,6 +5,7 @@ import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import IconButton from '@mui/material/IconButton';
 import { useEffect, useState } from 'react';
 import { getNetworks } from "../../service/network.service";
+import "../../pages/authentication/login.css";
 import "./index.css";
 
 export const ImportNFT = (props:any) => {
@@ -21,6 +22,9 @@ export const ImportNFT = (props:any) => {
         popupState.close();
     }
 
+    const handleImportNFT = () => {
+        props.setIsImportNFT(false);
+    }
     useEffect(() => {
 
         const localstoageItem = localStorage.getItem('networkModel');
@@ -33,7 +37,7 @@ export const ImportNFT = (props:any) => {
 
     }, []);
     return (
-        <div className='dialog'>
+        <div className='dialog import-nft-dialog'>
             <div className='close-icon'>
                 
                 <IoCloseSharp style={{cursor:"pointer"}} onClick={() => props.setIsImportNFT(false)}/>
@@ -42,7 +46,7 @@ export const ImportNFT = (props:any) => {
                 Import NFT from your wallet
             </div>
             <div className="price-pick-bar">
-                <input style={{width:"50%"}} className="version-field" type="number" placeholder="Price(min listing price is $5)"/>
+                <input style={{width:"50%"}} className="version-field" type="text" placeholder="NFT contract address"/>
                 <div className="token-price">
                     <input style={{width:"50%"}} type="text" disabled />
                     <PopupState variant="popover" popupId="post-menu">
@@ -84,9 +88,9 @@ export const ImportNFT = (props:any) => {
                 </div>
             </div>
                 
-            <input className="version-field" type="text" placeholder="Enter title about your art" />
-            <input className="version-field" type="text" placeholder="Enter title about your art" />
-            <button>PROCEED</button>
+            <input className="version-field" type="text" placeholder="NFT ID" />
+            <input className="version-field" type="text" placeholder="Image URI" />
+            <button className="styled-button" onClick={handleImportNFT}>PROCEED</button>
         </div>
     )
 }

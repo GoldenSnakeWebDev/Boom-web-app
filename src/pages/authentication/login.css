@@ -225,9 +225,6 @@
     border-radius: 20px;
     border: 1px solid grey;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     left: 25%;
     padding: 24px;
     position: fixed;

@@ -15,6 +15,26 @@
     }
 }
 
+.crypto-amount-field {
+    font-size: 12px;
+    font-weight: 900;
+    text-align: right;
+    padding-left: 30px !important;
+}
+
+.crypto-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 35px;
+}
+
+.crypto-amount-bar {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
 .deatil-info {
     display: flex;
     flex-direction: column;
@@ -50,6 +70,7 @@
     width: 100%;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box;
     display: flex;
     font-size: 16px;
     font-weight: 700;
@@ -159,3 +180,4 @@
     border: 1px solid grey;
     padding: 15px;
 }
+
