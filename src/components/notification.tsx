@@ -50,9 +50,9 @@ export const Notification = () => {
             <div className="notification-area">
                 {
                     notifications.length > 0 ?
-                    notifications.map(notification => {
+                    notifications.map((notification, key) => {
                         return (
-                            <NotificationCard notification={notification}/>
+                            <NotificationCard key={key} notification={notification}/>
                         )
                     }) :
                     <div>

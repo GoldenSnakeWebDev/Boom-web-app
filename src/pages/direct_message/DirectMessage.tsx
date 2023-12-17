@@ -2,8 +2,6 @@ import "./index.css";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Tab from '@mui/material/Tab';
-import TabPanel from '@mui/lab/TabPanel';
-import TabContext from '@mui/lab/TabContext';
 import { useState } from "react";
 
 export const DirectMessage = () => {

@@ -5,9 +5,12 @@ import { LiaUserEditSolid } from "react-icons/lia";
 import { MdLocationPin } from "react-icons/md";
 import { useEffect, useState } from "react"
 import { fetchMyProfile } from "../../service/profile.service"
+import { useNavigate
+ } from "react-router-dom";
 import "./index.css";
 
 export const UserProfile = () => {
+    const navigate = useNavigate();
     const [userLocation, serUserLocation] = useState('');
     const [userName, setUserName] = useState('');
     const [userSocialMedia, setUserSocialMedia] = useState({
@@ -83,7 +86,7 @@ export const UserProfile = () => {
                     {userName}
                 </div>
                 <div className="profile-edit">
-                    <LiaUserEditSolid style={{width:"24px", height:"24px", cursor:"pointer"}}/>
+                    <LiaUserEditSolid style={{width:"24px", height:"24px", cursor:"pointer"}} onClick={() => navigate('/edit_profile')}/>
                 </div>
 
             </div>

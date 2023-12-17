@@ -5,6 +5,7 @@ import { Register } from './pages/authentication/register';
 import { HomePage } from './pages/home/homepage';
 import { CreateNewPost } from './pages/newPost/create_new_post';
 import { DirectMessage } from './pages/direct_message/DirectMessage';
+import { EditProfile } from './pages/edit-profile/EditProfile';
 import './App.css';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/home' element={<HomePage/>}/>
           <Route path='/newpost' element={<CreateNewPost/>}/>
           <Route path='/direct_message' element={<DirectMessage/>}/>
+          <Route path='/edit_profile' element={<EditProfile/>}/>
         </Routes>
       </Router>
     </div>

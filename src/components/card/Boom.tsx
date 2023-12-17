@@ -13,7 +13,7 @@ export const BoomCard = (props:any) => {
             <div className="user-location">
                 <p className="no-margin boom-username">{props.boom.user.username}</p>
                 <div className="boom-location">
-                    <img style={{width:"32px", height:"32px"}} src={props.boom.network.image_url} alt="network icon" />
+                    <img style={{width:"16px", height:"16px"}} src={props.boom.network.image_url} alt="network icon" />
                     <div className="boom-location boom-gradiant-background boom-border-radius">
                         <MdLocationPin/>
                         <p className="no-margin">{props.boom.location}</p>
@@ -21,7 +21,15 @@ export const BoomCard = (props:any) => {
                 </div>
             </div>
             <div className="nft-name">
-                <p className="no-margin">{props.boom.image_url}</p>
+                {
+                    props.boom.boom_type === 'text' ?
+                    <p className="no-margin">{props.boom.image_url}</p> :
+                    props.boom.boom_type === 'video' ?
+                    <div></div> :
+                    <div>
+                        <img src={props.boom.image_url} alt="nft_image" />
+                    </div>
+                }
             </div>
 
             <div className="nft-title">

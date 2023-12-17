@@ -33,6 +33,8 @@ export const ShowNftList = (props:any) => {
                     // Now, parse the string using JSON.parse
                     const allbooms = JSON.parse(result);
 
+                    console.log("all booms>>>>", allbooms);
+
                     localStorage.setItem('saved', JSON.parse(result));
 
                     setBooms(allbooms.booms);
