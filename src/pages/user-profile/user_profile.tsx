@@ -20,6 +20,11 @@ export const UserProfile = () => {
         twitter: ""
     })
 
+    const [userBooms, setUserBooms] = useState([]);
+    const [userFans, setUserFans] = useState([]);
+    const [userFrens, setUserFrens] = useState([]);
+    const [userBio, setUserBio] = useState([]);
+
     const handleAddImage = () => {
 
     }
@@ -51,6 +56,10 @@ export const UserProfile = () => {
                     serUserLocation(myProfile.user.location);
                     setUserName(myProfile.user.username);
                     setUserSocialMedia(myProfile.user.social_media);
+                    setUserBooms(myProfile.user.booms);
+                    setUserFans(myProfile.user.funs);
+                    setUserFrens(myProfile.user.friends);
+                    setUserBio(myProfile.user.bio);
 
                 } else {
                     console.error('Response body is null.');
@@ -74,7 +83,7 @@ export const UserProfile = () => {
                     {userName}
                 </div>
                 <div className="profile-edit">
-                    <LiaUserEditSolid style={{cursor:"pointer"}}/>
+                    <LiaUserEditSolid style={{width:"24px", height:"24px", cursor:"pointer"}}/>
                 </div>
 
             </div>
@@ -125,6 +134,33 @@ export const UserProfile = () => {
                         }
                         
                     </div>
+                </div>
+
+                <div className="profile-detail-booms-fans-frens">
+                    <div className="profile-details">
+                        <div className="profile-details-counts">
+                            {userBooms.length}
+                        </div>
+                        Booms
+                    </div>
+
+                    <div className="profile-details">
+                        <div className="profile-details-counts">
+                            {userFans.length}
+                        </div>
+                        Fans
+                    </div>
+
+                    <div className="profile-details">
+                        <div className="profile-details-counts">
+                            {userFrens.length}
+                        </div>
+                        Frens
+                    </div>
+                </div>
+
+                <div className="profile-bio">
+                    {userBio ? userBio : "You have no Bio yet please add one"}
                 </div>
             </div>
             
