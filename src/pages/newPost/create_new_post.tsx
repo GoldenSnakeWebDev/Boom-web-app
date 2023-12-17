@@ -168,7 +168,7 @@ export const CreateNewPost = () => {
         <div className="new-post-container">
             <div className="newpost-header-bar">
                 <div style={{width:"30%", display:"flex", justifyContent:"start"}}>
-                    <MdArrowBackIosNew style={{cursor:"pointer"}} onClick={onBack}/>
+                    <MdArrowBackIosNew style={{width:"25px",height:"25px", cursor:"pointer"}} onClick={onBack}/>
                 </div>
                 New Post
                 <div style={{width:"30%", display:"flex", justifyContent:"end"}}>

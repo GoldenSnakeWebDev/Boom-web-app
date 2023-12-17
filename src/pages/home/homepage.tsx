@@ -12,6 +12,8 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Popover from '@mui/material/Popover';
 import "./index.css";
 import { getNetworks } from "../../service/network.service";
+import { UserProfile } from "../user-profile/user_profile";
+
 export const HomePage = () => {
     const navigate = useNavigate();
     const [isHome, setIsHome] = useState(true);
@@ -23,6 +25,10 @@ export const HomePage = () => {
         navigate('/newpost')
     }
 
+    const onDirectMessage = (popupState:any) => {
+        popupState.close();
+        navigate('/direct_message');
+    }
     useEffect(() => {
 
         getNetworks();
@@ -44,7 +50,9 @@ export const HomePage = () => {
                 isNotification && <Notification/>
             }
 
-            
+            {
+                isUser && <UserProfile/>
+            }
             
             <PopupState variant="popover" popupId="post-menu">
                 {(popupState:any) => (
@@ -68,7 +76,7 @@ export const HomePage = () => {
                                     <img style={{width:"30px", height:"30px"}} src={postIconUrl} alt="post icon"/>
                                     Post
                                 </div>
-                                <div className="menu-item" onClick={()=> onNewPost(popupState)}>
+                                <div className="menu-item" onClick={()=> onDirectMessage(popupState)}>
                                     <MdEmail style={{width:"30px", height:"30px"}} />
                                     DM
                                 </div>

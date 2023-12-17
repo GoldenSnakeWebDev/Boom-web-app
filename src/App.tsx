@@ -4,6 +4,7 @@ import { Login } from './pages/authentication/login';
 import { Register } from './pages/authentication/register';
 import { HomePage } from './pages/home/homepage';
 import { CreateNewPost } from './pages/newPost/create_new_post';
+import { DirectMessage } from './pages/direct_message/DirectMessage';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/register' element={<Register/>}/>
           <Route path='/home' element={<HomePage/>}/>
           <Route path='/newpost' element={<CreateNewPost/>}/>
+          <Route path='/direct_message' element={<DirectMessage/>}/>
         </Routes>
       </Router>
     </div>
