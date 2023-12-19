@@ -84,6 +84,10 @@ export const HomePage = () => {
                                     <img style={{width:"30px", height:"30px"}} src={fansIconUrl} alt="fans icon" />
                                     Fans
                                 </div>
+                                <div className="menu-item" onClick={()=> onNewPost(popupState)}>
+                                    <img style={{width:"30px", height:"30px"}} src={fansIconUrl} alt="fans icon" />
+                                    Frens
+                                </div>
                             </div>
                         </Popover>
                     </div>

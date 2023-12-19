@@ -1,13 +1,51 @@
 import { MdLocationPin } from "react-icons/md";
 import { IoThumbsUpOutline } from "react-icons/io5";
+import { reactToBoom } from "../../service/boomService";
 import "./index.css";
 import "../../pages/authentication/login.css";
+import { useEffect, useState } from "react";
 
 export const BoomCard = (props:any) => {
 
-    const handleComment = () => {
-        console.log("current commet>>", props.boom.comments.length);
+    const [isLiked, setIsLiked] = useState(false);
+    const [countsLiked, setCountsLiked] = useState(0);
+    const handleReaction = async () => {
+
+        if (isLiked) {
+            setIsLiked(!isLiked);
+            setCountsLiked(countsLiked - 1);
+        } else {
+            setIsLiked(!isLiked);
+            setCountsLiked(countsLiked + 1);
+        }
+        const res = await reactToBoom("likes", props.boom.id);
+
+        if (res?.status === 200) {
+
+            console.log("successfull reaction!!!");
+
+        } else {
+
+            console.log("faild reaction!!!!");
+        }
     }
+
+    useEffect(() => {
+        setCountsLiked(props.boom.reactions.likes.length);
+        const curUserID = localStorage.getItem("userID");
+
+        if (curUserID) {
+
+            props.boom.reactions.likes?.forEach((like:any) => {
+                if (like.id === curUserID) {
+                    setIsLiked(true);
+                }
+            })
+        } else {
+            setIsLiked(false);
+        }
+    }, [props])
+
     return (
         <div className="card-container">
             <div className="user-location">
@@ -37,8 +75,8 @@ export const BoomCard = (props:any) => {
             </div>
 
             <div className="nft-comment">
-                <IoThumbsUpOutline className="cursor-pointer" onClick={handleComment}/>
-                <p className="no-margin">{props.boom.comments.length}</p>
+                <IoThumbsUpOutline className={`${isLiked && "isliked"} cursor-pointer`} onClick={handleReaction}/>
+                <p className="no-margin">{countsLiked}</p>
             </div>
         </div>
     )

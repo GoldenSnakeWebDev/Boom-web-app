@@ -20,7 +20,6 @@ export const Login = () => {
     const [showWelcomeDialog, setShowWelcomeDialog] = useState(true);
     const [userName, setUserName] = useState('');
     const [password, setpassword] = useState('');
-    const [user, setUser] = useState<UserModel>({ status: '', user: null });
 
     const navigate = useNavigate();
 
@@ -64,12 +63,11 @@ export const Login = () => {
                 }
     
                 // Now, parse the string using JSON.parse
-                setUser(JSON.parse(result));
                 const token = JSON.parse(result).token;
-
+                const user = JSON.parse(result).user;
                 console.log('tokey>>>', token);
                 localStorage.setItem('token', `Bearer ${token}`);
-                const userId = user.user?.id ?? 'defaultUserId';
+                const userId = user.id ?? 'defaultUserId';
                 localStorage.setItem('userID', userId);
                 console.log('user id>>>>', userId);
 

@@ -11,7 +11,8 @@ export const NotificationCard = (props:any) => {
         setDate(date.toLocaleDateString('en-US'));
         setTime(date.toLocaleTimeString('en-US'));
 
-    })
+    },[props.notification.timestamp])
+    
     return (
         <div className="card-container">
             <div className="notification-content">

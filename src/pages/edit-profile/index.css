@@ -1,0 +1,65 @@
+.edit-profile-container {
+    padding: 16px;
+}
+
+.edit-profile-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.edit-profile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-edit-profile-save {
+    align-items: end;
+    background-color: white;
+    border: 0px;
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.edit-profile-input-bar {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.edit-profile-input-field {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid grey;
+    font-size: 20px;
+    padding: 4px 0px 4px 4px;
+    
+}
+
+.edit-profile-tip-detail {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.btns-profile-bottom {
+    border: 0px;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.btn-change-password {
+    color: rgb(68, 138, 255);
+}
+
+.btn-logout {
+    color: red;
+}

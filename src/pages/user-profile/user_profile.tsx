@@ -1,3 +1,5 @@
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import Popover from '@mui/material/Popover';
 import { FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa";
 import { FaMedium, FaInstagram } from "react-icons/fa6";
 import { CiCirclePlus } from "react-icons/ci";
@@ -5,8 +7,7 @@ import { LiaUserEditSolid } from "react-icons/lia";
 import { MdLocationPin } from "react-icons/md";
 import { useEffect, useState } from "react"
 import { fetchMyProfile } from "../../service/profile.service"
-import { useNavigate
- } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 export const UserProfile = () => {
@@ -27,9 +28,11 @@ export const UserProfile = () => {
     const [userFans, setUserFans] = useState([]);
     const [userFrens, setUserFrens] = useState([]);
     const [userBio, setUserBio] = useState([]);
+    const [profileURL, setProfileURL] = useState('');
 
-    const handleAddImage = () => {
-
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/');
     }
 
     const getMyProfile = async () => {
@@ -63,6 +66,7 @@ export const UserProfile = () => {
                     setUserFans(myProfile.user.funs);
                     setUserFrens(myProfile.user.friends);
                     setUserBio(myProfile.user.bio);
+                    setProfileURL(myProfile.user.photo);
 
                 } else {
                     console.error('Response body is null.');
@@ -86,17 +90,53 @@ export const UserProfile = () => {
                     {userName}
                 </div>
                 <div className="profile-edit">
-                    <LiaUserEditSolid style={{width:"24px", height:"24px", cursor:"pointer"}} onClick={() => navigate('/edit_profile')}/>
+                    
+                    <PopupState variant="popover" popupId="post-menu">
+                            {(popupState:any) => (
+                                <div>
+                                    <LiaUserEditSolid style={{width:"24px", height:"24px", cursor:"pointer"}} {...bindTrigger(popupState)}/>
+                                    
+                                    <Popover
+                                        {...bindPopover(popupState)}
+                                        anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                        }}
+                                    >
+                                        <div className="pop-menu-bar" >
+                                            <div className="menu-item" onClick={()=> navigate('/edit_profile')}>
+                                                Edit Profile
+                                            </div>
+                                            <div className="menu-item" onClick={handleLogout}>
+                                                Logout
+                                            </div>
+                                            
+                                        </div>
+                                    </Popover>
+                                </div>
+                                
+                            )}
+                        </PopupState>
                 </div>
 
             </div>
 
             <div className="profile-body">
                 <div className="profile-image-socail-bar">
-                    <div className="profile-image-bar">
-                        Add header Image
-                        <CiCirclePlus style={{width:"40px", height:"40px"}} onClick={handleAddImage}/>
-                    </div>
+                    {
+                        profileURL ? 
+                        <div className="profile-add-image-bar">
+                            <img style={{width:"100px", height:"100px"}} src={profileURL} alt="" />
+                        </div> :
+                        <div className="profile-add-image-bar">
+                            Add header Image
+                            <CiCirclePlus style={{width:"40px", height:"40px"}} onClick={() => navigate('/edit_profile')}/>
+                        </div>
+                    }
                     <div className="profile-social-bar">
                         {
                             userSocialMedia.twitter ? 

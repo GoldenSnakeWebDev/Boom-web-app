@@ -6,6 +6,22 @@
     overflow-y: auto;
 }
 
+.booms-list {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.booms-list-maxheight-noSearch {
+    max-height: calc(100vh - 130px);
+}
+
+.booms-list-maxheight-inSearch {
+    max-height: calc(100vh - 213px);
+}
+
 .notification-container {
     width: 100%;
 }
